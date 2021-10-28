@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     },
     btnGo: {
       color: 'black',
-      fontSize: '30px',
+      fontSize: 30,
       backgroundColor: '#FF0000',
       width: 40,
       height: 40,

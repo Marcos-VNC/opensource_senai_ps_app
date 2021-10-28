@@ -64,16 +64,15 @@ export default function login({navigation}){
     }, []);
     return(
         <SafeAreaView style={styles.container}>
-            
-            <Image style={styles.img2} source={require('../assets/imgs/sesi-senai-fundo.jpg')} blurRadius={1}/>
-            <Image style={styles.img} source={require('../assets/imgs/senai-logo.png')}/>
-            <View style={styles.formData} >
-                
-
-                <TextInput placeholder="Usuário" type="text" name="userInput" style={styles.textUser} value={User} onChangeText={(User)=> setUser(User)} />
-                <TextInput placeholder="Senha" secureTextEntry={true}  name="passInput" style={styles.textPass} value={Pass} onChangeText={(Pass)=> setPass(Pass)}/>
-                <TouchableOpacity onPress={User !="" && Pass !="" ? () => authenticate() : () => Alert.alert("Login Falhou", "Preencha Todos os campos",[{text: "OK"}])} style={styles.loginEnterBtn}><Text style={styles.textLogin}>Entrar</Text></TouchableOpacity>
-            </View>
+                <Image style={styles.img2} source={require('../assets/imgs/login_background.jpg')} blurRadius={1}/>
+                <View style={styles.field}>
+                <Image style={styles.img} source={require('../assets/imgs/senai-logo.png')}/>
+                    <View style={styles.formData} >
+                        <TextInput placeholder="Usuário" type="text" name="userInput" style={styles.textUser} value={User} onChangeText={(User)=> setUser(User)} />
+                        <TextInput placeholder="Senha" secureTextEntry={true}  name="passInput" style={styles.textPass} value={Pass} onChangeText={(Pass)=> setPass(Pass)}/>
+                        <TouchableOpacity onPress={User !="" && Pass !="" ? () => authenticate() : () => Alert.alert("Login Falhou", "Preencha Todos os campos",[{text: "OK"}])} style={styles.loginEnterBtn}><Text style={styles.textLogin}>Entrar</Text></TouchableOpacity>
+                    </View>
+                </View>
         </SafeAreaView>
     )
 }
@@ -85,16 +84,37 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        
-    },  
+    },
+    field: {
+        width: '80%',
+        height: '50%',
+        backgroundColor: "rgba(0,0,0,0.61)",
+        borderWidth: 5,
+        borderRadius: 10,
+        borderColor: "rgba(255,0,255,0)",
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+          width: 0,
+          height: 0
+        },
+        elevation: 5,
+        shadowOpacity: 1,
+        shadowRadius: 0,
+        marginTop: 100,
+        marginLeft: 2,
+        padding: 0,
+        alignItems: 'center',
+      },
     img:{
         zIndex: 20,
         width: "50%",
         margin:0,
-        height:"10%",
-        top: "5%",
-       
-        resizeMode:'contain'
+        top: "1%",
+        height: '22%',
+        resizeMode:'contain',
+        borderRadius: 5,
+        minHeight: '10%',
+        minWidth: '40%'
     },
     img2:{
         width: "100%",
@@ -107,36 +127,36 @@ const styles = StyleSheet.create({
         
     },
     formData:{
-        
+        marginBottom: '15%',
         width: "100%",
-        height: "100%",
+        height: "80%",
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },  
     textUser:{
- 
-        backgroundColor: 'white',
+        color: 'white',
+        backgroundColor: 'black',
         width: "80%",
         height: 60,
         borderRadius: 5,
         paddingStart: 15,
         fontSize: 20,
-        marginBottom: 20
+        marginBottom: 17
     },
     textPass:{
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         width: "80%",
         height: 60,
         borderRadius: 5,
         paddingStart: 15,
         fontSize: 20,
-
+        color: 'white'
 
     },
     loginEnterBtn:{
         position:'absolute',
-        width: '30%',
+        width: '24%',
         height: 50,
         backgroundColor: '#FF0000',
         
@@ -144,8 +164,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 20,
-        top: '75%',
-        left: '60%',
+        top: '85%',
+        left: '10%',
         borderRadius: 5,
     },
     textLogin:{
